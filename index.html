@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Eduardo | Portfólio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, #1abc9c30, transparent 40%),
+                radial-gradient(circle at 80% 70%, #16a08530, transparent 40%);
+    z-index: -1;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 280px;
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.highlight {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #1abc9c;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #16a085;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+/* eu particularmente gosto muito de animacaoes e blur*/
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="background"></div>
+
+<header class="hero">
+    <div class="glass reveal">
+        <h1>Carlos Eduardo</h1>
+        <p>Suporte Técnico • Hardware • Disciplina Militar</p>
+    </div>
+</header>
+
+<section class="reveal">
+    <div class="glass">
+        <h2>Sobre Mim</h2>
+        <p>
+            Experiência prática em montagem, manutenção e diagnóstico de computadores.
+            Atuação como ordenança do comando, exercendo função de confiança
+            diretamente ligada ao comandante do batalhão.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title reveal">Projetos Técnicos</h2>
+    <div class="cards">
+        <div class="glass card reveal">
+            <h3>Montagem e Configuração</h3>
+            <p>Seleção estratégica de peças, montagem completa e otimização de desempenho.</p>
+        </div>
+
+        <div class="glass card reveal">
+            <h3>Diagnóstico Avançado</h3>
+            <p>Identificação e resolução de falhas em hardware e problemas críticos.</p>
+        </div>
+
+        <div class="glass card reveal">
+            <h3>Instalação de Sistemas</h3>
+            <p>Instalação limpa, drivers e ajustes para máximo desempenho.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title reveal">🏅 Reconhecimentos</h2>
+    <div class="glass highlight reveal">
+        <h3>Honra ao Mérito</h3>
+        <p>
+            Concedida pelo desempenho, disciplina e dedicação no exercício das funções
+            junto ao comando do batalhão.
+        </p>
+
+        <a href="honra-ao-merito.pdf" class="btn" target="_blank">
+            Ver Certificado
+        </a>
+    </div>
+</section>
+
+<footer class="reveal">
+    © 2026 Carlos Eduardo
+</footer>
+
+<script>
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            element.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+</script>
+
+</body>
+</html>
